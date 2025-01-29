@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.form),
-    path('form/<slug:slug>/courses/',)
+    path('form/<slug:slug>/courses/',views.addBook, name="course")
 ]

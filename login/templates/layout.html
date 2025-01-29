@@ -16,10 +16,11 @@
     <nav>
       <a href="/">Home</a>
       <a href="/form">Form</a>
-      <a href=""></a>
+      <a href="/admin">Admin</a>
     </nav>
     {% block content %}
-
+      {% csrf_token %}
+      {{ form.as_p }}
     {% endblock %}
   </body>
 </html>

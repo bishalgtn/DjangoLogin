@@ -5,5 +5,5 @@ def form(request):
     return render(request, 'form.html')
 
 
-def form(request):
+def addBook(request):
     return render(request,'addBook.html')

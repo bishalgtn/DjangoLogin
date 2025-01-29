@@ -28,7 +28,7 @@ class Student(models.Model):
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=10)
     slug = models.SlugField(unique=True, blank=True, null=True)
-    Books = models.ForeignKey(Book, on_delete= models.SET_NULL, null=True, blank=True)
+    book = models.ForeignKey(Book, on_delete= models.SET_NULL, null=True, blank=True)
     
     def save(self, *args, **kwargs):
         if not self.slug:

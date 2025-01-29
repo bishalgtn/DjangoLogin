@@ -7,6 +7,7 @@ SUBJECT_CHOICES = [
     ('CHEMISTRY', 'Chemistry'),
     ('MATHS', 'Maths'),
     ('BIOLOGY', 'Biology'),
+    ('ZOOLOGY', 'Zoology'),
 ]
 
 class Book(models.Model):
@@ -25,15 +26,11 @@ class Student(models.Model):
     roll_number = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
     phone_number = models.CharField(max_length=10)
-    slug = models.SlugField(unique=True, blank=True, null=True)
+    slug = models.SlugField(unique=True, null=True)
     book = models.ForeignKey(Book, on_delete= models.SET_NULL, null=True, blank=True)
     
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(f"{self.first_name}-{self.last_name}")  # Auto-generate slug
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

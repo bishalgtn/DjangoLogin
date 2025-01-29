@@ -12,17 +12,17 @@ def form(request):
         if len(phone_number) !=10 or phone_number[0]==0:
             return HttpResponse("Number should be exact 10 and should not start from Zero")
         book = request.POST.get("book")
-        slug = request.Post.get("slug")
+        slug = request.POST.get("slug")
         if not slug:
             slug = slugify (f"{first_name}-{last_name}")
 
         student = Student(first_name=first_name, last_name=last_name, email=email,phone_number=phone_number,book=book)
         student.save()
 
-        return redirect("sucessfull to save data")
+        return redirect('addBook')
     return render(request, 'form.html') 
 
 
-def addBook(request, slug):
+def addBook(request):
     # books = Book.objects.all()
-    return render(request,'addBook.html',{"books": books})
+    return render(request,'addBook.html')

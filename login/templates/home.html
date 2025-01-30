@@ -18,6 +18,17 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">First Name</th>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Last Name</th>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Email</th>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Phone Number</th>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Date of creation</th>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Title</th>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">ISBN Number</th>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Discription</th>
+          <th>Category</th>
+        </tr>
         {% if students %}
           {% for student in students %}
             {% if books %}
@@ -27,22 +38,25 @@
                   <td>{{ student.last_name }}</td>
                   <td>{{ student.email }}</td>
                   <td>{{ student.phone_number }}</td>
-                  <td>{{ student.date }}</td>
-                  <td>{{ book.ISBN }}</td>
+                  <td style="border-right: 1px solid rgba(0, 0, 0, 0.29)">{{ student.date }}</td>
                   <td>{{ book.title }}</td>
+                  <td>{{ book.ISBN }}</td>
                   <td>{{ book.description }}</td>
+                  {% comment %} {% if not {{ book.description }}%}
+                    <p> Unable to fetch data</p>
+                  {% endif %} {% endcomment %}
                   <td>{{ book.category }}</td>
                 </tr>
               {% endfor %}
             {% else %}
               <tr>
-                <td>No data</td>
+                <td></td>
               </tr>
             {% endif %}
           {% endfor %}
         {% else %}
           <tr>
-            <td>No data</td>
+            <td></td>
           </tr>
         {% endif %}
       </tbody>

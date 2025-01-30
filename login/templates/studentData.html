@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Student
+{% endblock %}
+
+{% block content %}
+  <h2><a href="/form">click here,</a> to fill a form.</h2>
+  <div class="data">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="5">student</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">First Name</th>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Last Name</th>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Email</th>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Phone Number</th>
+          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Date of creation</th>
+        </tr>
+        {% if students %}
+          {% for student in students %}
+            <tr>
+              <td>{{ student.first_name }}</td>
+              <td>{{ student.last_name }}</td>
+              <td>{{ student.email }}</td>
+              <td>{{ student.phone_number }}</td>
+              <td>{{ student.date }}</td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td></td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

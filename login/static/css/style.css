@@ -92,14 +92,16 @@ body {
   }
   
   table {
-  
-    text-align: center;
-    width: 60%;
+    text-align: center  ;
+    width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#tableData{
+  display: inline;
 }
 
 th, td {
@@ -111,6 +113,9 @@ th, td {
 th {
     background-color: #4CAF50;
     color: white;
+}
+td {
+  margin-left: 4px;
 }
 
 tr:nth-child(even) {

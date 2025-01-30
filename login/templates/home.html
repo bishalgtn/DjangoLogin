@@ -29,36 +29,38 @@
           <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Discription</th>
           <th>Category</th>
         </tr>
-        {% if students %}
+        <div id="tableData" style="display: inline-flex;">
           {% for student in students %}
-            {% if books %}
-              {% for book in books %}
-                <tr>
-                  <td>{{ student.first_name }}</td>
-                  <td>{{ student.last_name }}</td>
-                  <td>{{ student.email }}</td>
-                  <td>{{ student.phone_number }}</td>
-                  <td style="border-right: 1px solid rgba(0, 0, 0, 0.29)">{{ student.date }}</td>
-                  <td>{{ book.title }}</td>
-                  <td>{{ book.ISBN }}</td>
-                  <td>{{ book.description }}</td>
-                  {% comment %} {% if not {{ book.description }}%}
-                    <p> Unable to fetch data</p>
-                  {% endif %} {% endcomment %}
-                  <td>{{ book.category }}</td>
-                </tr>
-              {% endfor %}
+            {% if students %}
+              <tr>
+                <td>{{ student.first_name }}</td>
+                <td>{{ student.last_name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.phone_number }}</td>
+                <td style="border-right: 1px solid rgba(0, 0, 0, 0.29)">{{ student.date }}</td>
+              </tr>
             {% else %}
               <tr>
                 <td></td>
               </tr>
             {% endif %}
           {% endfor %}
-        {% else %}
-          <tr>
-            <td></td>
-          </tr>
-        {% endif %}
+
+          {% for book in books %}
+            {% if books %}
+              <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.ISBN }}</td>
+                <td>{{ book.description }}</td>
+                <td>{{ book.category }}</td>
+              </tr>
+            {% else %}
+              <tr>
+                <td></td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </div>
       </tbody>
     </table>
   </div>

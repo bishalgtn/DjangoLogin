@@ -10,22 +10,29 @@
     <form method="POST">
       {% csrf_token %}
       <div class="form-group">
-        <label for="First Name">First Name</label>
-        <input type="text" id="first_name" name="first_name" placeholder="Enter your First Name" required />
+        <label for="ISBN">ISBN number</label>
+        <input type="text" id="ISBN" name="ISBN" placeholder="ISBN: 23457643562545" required />
       </div>
       <div class="form-group">
-        <label for="last Name">Last Name</label>
-        <input type="text" id="last_name" name="last_name" placeholder="Enter your Last Name" required />
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" placeholder="Enter Email" required />
+        <label for="title">Title of Book</label>
+        <input type="text" id="title" name="title" placeholder="Enter Title of the book" required />
       </div>
 
       <div class="form-group">
-        <label for="slug">Slug</label>
-        <input type="text" id="slug" name="slug" placeholder="eg:we-are-live-today" required />
+        <label for="discription">Discription</label>
+        <input type="text" id="discription" name="discription" required />
+      </div>
+
+      <div class="form-group">
+        <label for="catagory">Book</label>
+        <select name="catagory" id="catagory">
+          <option value="Select book" disabled>Select book</option>
+          <option value="Physics">Physics</option>
+          <option value="Chemisry">Chemistry</option>
+          <option value="Maths">Maths</option>
+          <option value="Biology">Biology</option>
+          <option value="Zoology">Zoology</option>
+        </select>
       </div>
 
       <button type="submit" id="submit">Submit</button>

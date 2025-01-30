@@ -9,4 +9,43 @@
     welcome to web page!!
     <a href="/form">click here,</a> to fill a form.
   </h2>
+  <div class="data">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="5" style="border-right: 1px solid rgba(0, 0, 0, 0.29);">student</th>
+          <th colspan="4">Book</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if students %}
+          {% for student in students %}
+            {% if books %}
+              {% for book in books %}
+                <tr>
+                  <td>{{ student.first_name }}</td>
+                  <td>{{ student.last_name }}</td>
+                  <td>{{ student.email }}</td>
+                  <td>{{ student.phone_number }}</td>
+                  <td>{{ student.date }}</td>
+                  <td>{{ book.ISBN }}</td>
+                  <td>{{ book.title }}</td>
+                  <td>{{ book.description }}</td>
+                  <td>{{ book.category }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td>No data</td>
+              </tr>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td>No data</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
 {% endblock %}

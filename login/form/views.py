@@ -25,4 +25,13 @@ def form(request):
 
 def addBook(request):
     # books = Book.objects.all()
+    if request.method == "POST":
+        ISBN = request.POST.get("isbn")
+        title = request.POST.get("title")
+        discription = request.POST.get("discription")
+        catagory= request.POST.get("catagoty")
+        
+        book = Book(ISBN=ISBN, title=title, discription = discription, catagory=catagory)
+        book.save()
+        return HttpResponse("data added")
     return render(request,'addBook.html')

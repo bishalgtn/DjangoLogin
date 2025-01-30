@@ -26,7 +26,7 @@ def form(request):
 def addBook(request):
     # books = Book.objects.all()
     if request.method == "POST":
-        ISBN = request.POST.get("isbn")
+        ISBN = request.POST.get("ISBN")
         title = request.POST.get("title")
         discription = request.POST.get("discription")
         catagory= request.POST.get("catagoty")

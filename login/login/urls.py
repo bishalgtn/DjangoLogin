@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.home),
     path('student/', views.showStudent),
     path('book/', views.showBook),
-    path('form/', include('form.urls')), 
+    path('form/', include('form.urls')),
+    path('user/', include('user.urls')),
 ]

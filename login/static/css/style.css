@@ -34,9 +34,10 @@ body {
     display: block;
     font-size: 14px;
     color: #555;
+    margin-top: 5px;
     margin-bottom: 5px;
   }
-  input[type="email"] {
+#books{
     width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -46,15 +47,6 @@ body {
     box-sizing: border-box;
   }
 
-  input[type="textarea"] {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    margin-top: 5px;
-    box-sizing: border-box;
-  }
   input[type="text"],
   input[type="number"] {
     width: 100%;
@@ -63,6 +55,7 @@ body {
     border-radius: 4px;
     border: 1px solid #ddd;
     margin-top: 5px;
+    margin-bottom: 5px;
     box-sizing: border-box;
   }
   
@@ -99,9 +92,6 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-#tableData{
-  display: inline;
 }
 
 th, td {

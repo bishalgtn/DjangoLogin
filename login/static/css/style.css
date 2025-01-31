@@ -79,13 +79,14 @@ body {
 
   .data{
     display: flex;
-    width: 70vw;
+    justify-content: center;
+    width: 100%;
     justify-content: center;
     color: #333;
   }
   
   table {
-    text-align: center  ;
+    align-items: center  ;
     width: 70%;
     border-collapse: collapse;
     margin: 20px 0;

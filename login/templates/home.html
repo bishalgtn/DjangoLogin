@@ -31,36 +31,36 @@
       </thead>
       <tbody>
         {% for student, book in data %}
-          {% if book %}
-            <tr>
-              <td style="border-right: 1px solid black;">{{ student.first_name }}</td>
-              <td style="border-right: 1px solid black;">{{ student.last_name }}</td>
-              <td style="border-right: 1px solid black;">{{ student.email }}</td>
-              <td style="border-right: 1px solid black;">{{ student.phone_number }}</td>
-              <td style="border-right: 1px solid black;">{{ student.date }}</td>
+        {% if book %}
+          <tr>
+            <td style="border-right: 1px solid black;">{{ student.first_name }}</td>
+            <td style="border-right: 1px solid black;">{{ student.last_name }}</td>
+            <td style="border-right: 1px solid black;">{{ student.email }}</td>
+            <td style="border-right: 1px solid black;">{{ student.phone_number }}</td>
+            <td style="border-right: 1px solid black;">{{ student.date|date:"m-d" }}</td>
 
-              <td style="border-right: 1px solid black;">{{ book.title }}</td>
-              <td style="border-right: 1px solid black;">{{ book.ISBN }}</td>
-              <td style="border-right: 1px solid black;">{{ book.discription }}</td>
-              <td>{{ book.catagory }}</td> {% comment %} {% if forloop.counter <= books|length %}
-                {% for book in books|slice:forloop.counter0|slice:':1' %}
-                  <td style="border-right: 1px solid black;">{{ book.title }}</td>
-                  <td style="border-right: 1px solid black;">{{ book.ISBN }}</td>
-                  <td style="border-right: 1px solid black;">{{ book.discription }}</td>
-                  <td>{{ book.catagory }}</td>
-                {% endfor %}
-              {% else %}
-                <td colspan="4" style="text-align: center;"></td>
-              {% endif %} {% endcomment %}
-              {% else %}
-              <td style="border-right: 1px solid black;">{{ student.first_name }}</td>
-              <td style="border-right: 1px solid black;">{{ student.last_name }}</td>
-              <td style="border-right: 1px solid black;">{{ student.email }}</td>
-              <td style="border-right: 1px solid black;">{{ student.phone_number }}</td>
-              <td style="border-right: 1px solid black;">{{ student.date }}</td>
-            </tr>
-          {% endif %}
-        {% endfor %}
+            <td style="border-right: 1px solid black;">{{ book.title }}</td>
+            <td style="border-right: 1px solid black;">{{ book.ISBN }}</td>
+            <td style="border-right: 1px solid black;">{{ book.discription }}</td>
+            <td>{{ book.catagory }}</td> {% comment %} {% if forloop.counter <= books|length %}
+              {% for book in books|slice:forloop.counter0|slice:':1' %}
+                <td style="border-right: 1px solid black;">{{ book.title }}</td>
+                <td style="border-right: 1px solid black;">{{ book.ISBN }}</td>
+                <td style="border-right: 1px solid black;">{{ book.discription }}</td>
+                <td>{{ book.catagory }}</td>
+              {% endfor %}
+            {% else %}
+              <td colspan="4" style="text-align: center;"></td>
+            {% endif %} {% endcomment %}
+            {% else %}
+            <td style="border-right: 1px solid black;">{{ student.first_name }}</td>
+            <td style="border-right: 1px solid black;">{{ student.last_name }}</td>
+            <td style="border-right: 1px solid black;">{{ student.email }}</td>
+            <td style="border-right: 1px solid black;">{{ student.phone_number }}</td>
+            <td style="border-right: 1px solid black;">{{ student.date |date:"m-d" }}</td>
+            {% endif %}
+          </tr>
+          {% endfor %}
       </tbody>
     </table>
   </div>

@@ -6,64 +6,61 @@
 
 {% block content %}
   <h2>
-    welcome to web page!!
-    <a href="/form">click here,</a> to fill a form.
+    Welcome to the web page!!
+    <a href="/form">Click here</a> to fill a form.
   </h2>
+
   <div class="data">
-    <table>
+    <table border="1">
       <thead>
         <tr>
-          <th colspan="5" style="border-right: 1px solid rgba(0, 0, 0, 0.29);">student</th>
-          <th colspan="4">Book</th>
+          <th colspan="5" style="text-align: center; border-right: 1px solid black;">Students</th>
+          <th colspan="4" style="text-align: center;">Books</th>
+        </tr>
+        <tr>
+          <th style="border-right: 1px solid black;">First Name</th>
+          <th style="border-right: 1px solid black;">Last Name</th>
+          <th style="border-right: 1px solid black;">Email</th>
+          <th style="border-right: 1px solid black;">Phone Number</th>
+          <th style="border-right: 1px solid black;">Date of Creation</th>
+          <th style="border-right: 1px solid black;">Title</th>
+          <th style="border-right: 1px solid black;">ISBN Number</th>
+          <th style="border-right: 1px solid black;">Description</th>
+          <th>Category</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">First Name</th>
-          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Last Name</th>
-          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Email</th>
-          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Phone Number</th>
-          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Date of creation</th>
-          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Title</th>
-          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">ISBN Number</th>
-          <th style="border-right: 1px solid rgba(87, 87, 87, 0.29);">Discription</th>
-          <th>Category</th>
-        </tr>
-        <tr>
-          <td>
-            {% for student in students %}
-              {% if students %}
-                <tr>
-                  <td>{{ student.first_name }}</td>
-                  <td>{{ student.last_name }}</td>
-                  <td>{{ student.email }}</td>
-                  <td>{{ student.phone_number }}</td>
-                  <td style="border-right: 1px solid rgba(0, 0, 0, 0.29)">{{ student.date }}</td>
-                </tr>
-              {% else %}
-                <tr>
-                  <td></td>
-                </tr>
-              {% endif %}
-            {% endfor %}
-          </td>
-          <td>
-            {% for book in books %}
-              {% if books %}
-                <tr>
-                  <td>{{ book.title }}</td>
-                  <td>{{ book.ISBN }}</td>
-                  <td>{{ book.discription }}</td>
-                  <td>{{ book.catagory }}</td>
-                </tr>
-              {% else %}
-                <tr>
-                  <td></td>
-                </tr>
-              {% endif %}
-            {% endfor %}
-          </td>
-        </tr>
+        {% for student, book in data %}
+        {% if book %}
+          <tr>
+            <td style="border-right: 1px solid black;">{{ student.first_name }}</td>
+            <td style="border-right: 1px solid black;">{{ student.last_name }}</td>
+            <td style="border-right: 1px solid black;">{{ student.email }}</td>
+            <td style="border-right: 1px solid black;">{{ student.phone_number }}</td>
+            <td style="border-right: 1px solid black;">{{ student.date }}</td>
+
+            <td style="border-right: 1px solid black;">{{ book.title }}</td>
+            <td style="border-right: 1px solid black;">{{ book.ISBN }}</td>
+            <td style="border-right: 1px solid black;">{{ book.discription }}</td>
+            <td>{{ book.catagory }}</td> {% comment %} {% if forloop.counter <= books|length %}
+              {% for book in books|slice:forloop.counter0|slice:':1' %}
+                <td style="border-right: 1px solid black;">{{ book.title }}</td>
+                <td style="border-right: 1px solid black;">{{ book.ISBN }}</td>
+                <td style="border-right: 1px solid black;">{{ book.discription }}</td>
+                <td>{{ book.catagory }}</td>
+              {% endfor %}
+            {% else %}
+              <td colspan="4" style="text-align: center;"></td>
+            {% endif %} {% endcomment %}
+            {% else %}
+            <td style="border-right: 1px solid black;">{{ student.first_name }}</td>
+            <td style="border-right: 1px solid black;">{{ student.last_name }}</td>
+            <td style="border-right: 1px solid black;">{{ student.email }}</td>
+            <td style="border-right: 1px solid black;">{{ student.phone_number }}</td>
+            <td style="border-right: 1px solid black;">{{ student.date }}</td>
+            {% endif %}
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>

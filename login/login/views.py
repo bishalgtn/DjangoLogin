@@ -3,8 +3,14 @@ from form.models import Student, Book
 
 def home(request):
     books = Book.objects.all()
-    student = Student.objects.all()
-    return render(request, 'home.html', {'students':student, 'books': books})
+    students = Student.objects.all()
+    data = []
+    for i in range(len(students)):
+        if i < len(books):
+            data.append((students[i], books[i]))
+        else:
+            data.append((students[i], None))
+    return render(request, 'home.html', {'data':data})
 
 
 def showStudent(request):

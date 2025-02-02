@@ -19,14 +19,14 @@ body {
     color: #333;
   }
   
-  nav{
+  .topnav{
     background: #4CAF50;
     border-radius: 2rem;
   }
 
-  nav > a{
+  nav > ul > li {
     border-radius: 0 16px;
-    width: 7rem;
+    width: 7.5rem;
     text-align: center;
 
   }
@@ -103,7 +103,6 @@ body {
 
   .landing > div{
     display: flex;
-    /* align-items: center; */
     width: 70%;
     padding-right: 1rem;
   }

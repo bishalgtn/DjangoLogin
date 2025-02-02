@@ -14,28 +14,51 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <nav class="flex justify-center p-2 m-2 rounded-xl text-white">
-      <a href="/" class="m-1 hover:bg-green-500 p-2 l">Home</a>
-      <a href="/form" class="m-1 hover:bg-green-500 p-2 rounded-xl">Form</a>
-      <a href="/student" class="m-1 hover:bg-green-500 p-2 rounded-xl">Student Data</a>
-      <a href="/book" class="m-1 hover:bg-green-500 p-2 rounded-xl">Book Data</a>
-      <a href="/superadmin" class="m-1 hover:bg--500 p-2 rounded-xl">Admin</a>
+    <nav class="flex justify-center p-2 m-2 rounded-xl text-white topnav">
+      <ul class="flex gap-2">
+        <li class="{% if request.path == '/' %} bg-green-500 {% endif %} hoverNav pt-1 pb-1">
+          <a href="/" class="m-2 {% if request.path != '/' %} hover:bg-green-500 {% endif %}  p-2 rounded-xl">Home</a>
+        </li>
+        <li class="{% if request.path == '/form/' %} bg-green-500 {% endif %} pt-1 pb-1 rounded-xl">
+          <a href="/form" class="m-1 {% if request.path != '/form/' %} hover:bg-green-500 {% endif %} p-2 rounded-xl">Form</a>
+        </li>
+        <li class="{% if request.path == '/student/' %} bg-green-500 {% endif %} pt-1 pb-1 rounded-xl">
+          <a href="/student" class="m-1 {% if request.path != '/student/' %} hover:bg-green-500 {% endif %} p-2 rounded-xl">Student Data</a>
+        </li>
+        <li class="{% if request.path == '/book/' %} bg-green-500 {% endif %} pt-1 pb-1 rounded-xl">
+          <a href="/book" class="m-1 p-2 {% if request.path != '/book/' %} hover:bg-green-500 {% endif %} rounded-xl">Book Data</a>
+        </li>
+        <li class="{% if request.path == '/superadmin/' %} bg-green-500 {% endif %} pt-1 pb-1 rounded-xl">
+          <a href="/superadmin" class="m-1 {% if request.path != '/superadmin/' %} hover:bg-green-500 {% endif %} p-2 rounded-xl">Admin</a>
+        </li>
+      </ul>
     </nav>
+
     {% block content %}
       {% csrf_token %}
       {{ form.as_p }}
     {% endblock %}
     <footer>
-      <div>
-        
-      </div>
-      <ul>
-        <li>link1</li>
-        <li>link2</li>
-        <li>link3</li>
-        <li>link4</li>
-        <li>link5</li>
-      </ul>
+      <h1 class="text-xl">Register your name</h1>
+      <nav>
+        <ul class="flex flex-row">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/form">Form</a>
+          </li>
+          <li>
+            <a href="/student">Student Data</a>
+          </li>
+          <li>
+            <a href="/book">Book Data</a>
+          </li>
+          <li>
+            <a href="/superadmin">Admin</a>
+          </li>
+        </ul>
+      </nav>
     </footer>
   </body>
 </html>

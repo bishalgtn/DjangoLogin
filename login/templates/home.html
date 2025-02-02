@@ -1,19 +1,31 @@
 {% extends 'layout.html' %}
+{% load static %}
 
 {% block title %}
   Home
 {% endblock %}
 
 {% block content %}
-  <h2>
-    Welcome to the web page!!
-    <a href="/form">Click here</a> to fill a form.
-  </h2>
+  <div class="landing">
+    <div class="p-4 flex-col p-2 items-start">
+      <div class="flow-root text-6xl font-bold pl-x">
+        <h1 class="my-4">Welcome to the web page!!</h1>
+        <h3 class="text-xl font-light">A school library (or a school media center) is a library within a school where students, and sometimes their parents and staff have access to loan a variety of resources, often literary or digital.</h3>
+      </div>
+      <div class="my-4 text-white flex flex-row">
+        <a href="/form" class="p-3 mr-3 rounded-4xl alin">click for form</a>
+        <a href="/form" class="p-3 rounded-4xl alin">click for form</a>
+      </div>
+    </div>
+    <div>
+      <img src="{% static 'image/9176169_6607.svg' %}" alt="landing image" />
+    </div>
+  </div>
 
   <div class="data">
     <table border="1">
-      <thead>
-        <tr>
+      <thead class="rounded-xl">
+        <tr class="rounded-xl">
           <th colspan="5" style="text-align: center; border-right: 1px solid black;">Students</th>
           <th colspan="4" style="text-align: center;">Books</th>
         </tr>
@@ -31,36 +43,36 @@
       </thead>
       <tbody>
         {% for student, book in data %}
-        {% if book %}
           <tr>
-            <td style="border-right: 1px solid black;">{{ student.first_name }}</td>
-            <td style="border-right: 1px solid black;">{{ student.last_name }}</td>
-            <td style="border-right: 1px solid black;">{{ student.email }}</td>
-            <td style="border-right: 1px solid black;">{{ student.phone_number }}</td>
-            <td style="border-right: 1px solid black;">{{ student.date|date:"m-d" }}</td>
+            {% if book %}
+              <td style="border-right: 1px solid black;">{{ student.first_name }}</td>
+              <td style="border-right: 1px solid black;">{{ student.last_name }}</td>
+              <td style="border-right: 1px solid black;">{{ student.email }}</td>
+              <td style="border-right: 1px solid black;">{{ student.phone_number }}</td>
+              <td style="border-right: 1px solid black;">{{ student.date|date:'m-d' }}</td>
 
-            <td style="border-right: 1px solid black;">{{ book.title }}</td>
-            <td style="border-right: 1px solid black;">{{ book.ISBN }}</td>
-            <td style="border-right: 1px solid black;">{{ book.discription }}</td>
-            <td>{{ book.catagory }}</td> {% comment %} {% if forloop.counter <= books|length %}
-              {% for book in books|slice:forloop.counter0|slice:':1' %}
-                <td style="border-right: 1px solid black;">{{ book.title }}</td>
-                <td style="border-right: 1px solid black;">{{ book.ISBN }}</td>
-                <td style="border-right: 1px solid black;">{{ book.discription }}</td>
-                <td>{{ book.catagory }}</td>
-              {% endfor %}
+              <td style="border-right: 1px solid black;">{{ book.title }}</td>
+              <td style="border-right: 1px solid black;">{{ book.ISBN }}</td>
+              <td style="border-right: 1px solid black;">{{ book.discription }}</td>
+              <td>{{ book.catagory }}</td> {% comment %} {% if forloop.counter <= books|length %}
+                {% for book in books|slice:forloop.counter0|slice:':1' %}
+                  <td style="border-right: 1px solid black;">{{ book.title }}</td>
+                  <td style="border-right: 1px solid black;">{{ book.ISBN }}</td>
+                  <td style="border-right: 1px solid black;">{{ book.discription }}</td>
+                  <td>{{ book.catagory }}</td>
+                {% endfor %}
+              {% else %}
+                <td colspan="4" style="text-align: center;"></td>
+              {% endif %} {% endcomment %}
             {% else %}
-              <td colspan="4" style="text-align: center;"></td>
-            {% endif %} {% endcomment %}
-            {% else %}
-            <td style="border-right: 1px solid black;">{{ student.first_name }}</td>
-            <td style="border-right: 1px solid black;">{{ student.last_name }}</td>
-            <td style="border-right: 1px solid black;">{{ student.email }}</td>
-            <td style="border-right: 1px solid black;">{{ student.phone_number }}</td>
-            <td style="border-right: 1px solid black;">{{ student.date |date:"m-d" }}</td>
+              <td style="border-right: 1px solid black;">{{ student.first_name }}</td>
+              <td style="border-right: 1px solid black;">{{ student.last_name }}</td>
+              <td style="border-right: 1px solid black;">{{ student.email }}</td>
+              <td style="border-right: 1px solid black;">{{ student.phone_number }}</td>
+              <td style="border-right: 1px solid black;">{{ student.date|date:'m-d' }}</td>
             {% endif %}
           </tr>
-          {% endfor %}
+        {% endfor %}
       </tbody>
     </table>
   </div>

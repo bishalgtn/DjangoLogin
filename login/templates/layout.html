@@ -9,20 +9,33 @@
         Login - Django Project
       {% endblock %}
     </title>
-
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="icon" href="{% static 'image/9319635_Library_Freepik.svg' %}" type="image/x-icon" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/form">Form</a>
-      <a href="/student">Student Data</a>
-      <a href="/book">Book Data</a>
-      <a href="/superadmin">Admin</a>
+    <nav class="flex justify-center p-2 m-2 rounded-xl text-white">
+      <a href="/" class="m-1 hover:bg-green-500 p-2 l">Home</a>
+      <a href="/form" class="m-1 hover:bg-green-500 p-2 rounded-xl">Form</a>
+      <a href="/student" class="m-1 hover:bg-green-500 p-2 rounded-xl">Student Data</a>
+      <a href="/book" class="m-1 hover:bg-green-500 p-2 rounded-xl">Book Data</a>
+      <a href="/superadmin" class="m-1 hover:bg--500 p-2 rounded-xl">Admin</a>
     </nav>
     {% block content %}
       {% csrf_token %}
       {{ form.as_p }}
     {% endblock %}
+    <footer>
+      <div>
+        
+      </div>
+      <ul>
+        <li>link1</li>
+        <li>link2</li>
+        <li>link3</li>
+        <li>link4</li>
+        <li>link5</li>
+      </ul>
+    </footer>
   </body>
 </html>

@@ -1,6 +1,7 @@
 body {
     background-color: #e6f7ff;
     font-family: Arial, sans-serif;
+    min-height: 100vh;
   }
   
   .login-container {
@@ -26,7 +27,6 @@ body {
 
   nav > ul > li {
     border-radius: 0 16px;
-    width: 7.5rem;
     text-align: center;
 
   }

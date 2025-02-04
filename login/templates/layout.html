@@ -11,7 +11,16 @@
     </title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="icon" href="{% static 'image/9319635_Library_Freepik.svg' %}" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=folder_code,language,mail" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-footer-blue: #4caf50;
+      }
+    </style>
   </head>
   <body>
     <nav class="flex justify-center p-2 m-2 rounded-xl text-white topnav">
@@ -28,9 +37,6 @@
         <li class="{% if request.path == '/book/' %} bg-green-500 {% endif %} pt-1 pb-1 rounded-xl">
           <a href="/book" class="m-1 p-2 {% if request.path != '/book/' %} hover:bg-green-500 {% endif %} rounded-xl">Book Data</a>
         </li>
-        <li class="{% if request.path == '/superadmin/' %} bg-green-500 {% endif %} pt-1 pb-1 rounded-xl">
-          <a href="/superadmin" class="m-1 {% if request.path != '/superadmin/' %} hover:bg-green-500 {% endif %} p-2 rounded-xl">Admin</a>
-        </li>
       </ul>
     </nav>
 
@@ -38,25 +44,40 @@
       {% csrf_token %}
       {{ form.as_p }}
     {% endblock %}
-    <footer>
-      <h1 class="text-xl">Register your name</h1>
-      <nav>
-        <ul class="flex flex-row">
-          <li>
+    <footer class="bg-footer-blue content-center inset-x-0 bottom-0 text-white">
+      <nav class="flex flex-row justify-between m-4">
+        <ul class="w-30">
+          <li class="text-xl font-mono font-bold">Register</li>
+        </ul>
+        <ul class="flex flex-row font-bold">
+          <li class="pl-4">
             <a href="/">Home</a>
           </li>
-          <li>
+          <li class="pl-4">
             <a href="/form">Form</a>
           </li>
-          <li>
+          <li class="pl-4">
             <a href="/student">Student Data</a>
           </li>
-          <li>
+          <li class="pl-4">
             <a href="/book">Book Data</a>
           </li>
-          <li>
+          <li class="pl-4">
             <a href="/superadmin">Admin</a>
           </li>
+        </ul>
+        <ul class="flex flex-row">
+          <li class="pl-4 font-bold">Connect:</li>
+          <li class="pl-4">
+            <span class="material-symbols-outlined">mail</span>
+          </li>
+          <li class="pl-4">
+            <span class="material-symbols-outlined">language</span>
+          </li>
+          <li class="pl-4">
+            <span class="material-symbols-outlined">folder_code</span>
+          </li>
+          <li class="pl-4"></li>
         </ul>
       </nav>
     </footer>
